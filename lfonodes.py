@@ -47,7 +47,7 @@ class SineNode:
     FUNCTION = "sine_wave"
     CATEGORY = TREE_MAIN
 
-    def sine_wave(position, phase_offset, frequency, amplitude, offset):
+    def sine_wave(self, position, phase_offset, frequency, amplitude, offset):
         position = position + phase_offset
         phase = position * frequency * 2 * math.pi
         return offset + amplitude * math.sin(phase),
@@ -72,7 +72,7 @@ class SawtoothNode:
     FUNCTION = "sawtooth_wave"
     CATEGORY = TREE_MAIN
 
-    def sawtooth_wave(position, phase_offset, frequency, amplitude, offset):
+    def sawtooth_wave(self, position, phase_offset, frequency, amplitude, offset):
         position = position + phase_offset
         phase = (position * frequency) - int(position * frequency)
         return offset + amplitude * (2 * phase - 1),
@@ -97,7 +97,7 @@ class SquareNode:
     FUNCTION = "square_wave"
     CATEGORY = TREE_MAIN
 
-    def square_wave(position, phase_offset, frequency, amplitude, offset):
+    def square_wave(self, position, phase_offset, frequency, amplitude, offset):
         position = position + phase_offset
         phase = (position * frequency) - int(position * frequency)
         return offset + amplitude * (1 if phase < 0.5 else -1),
@@ -123,7 +123,7 @@ class PulseNode:
     FUNCTION = "pulse_wave"
     CATEGORY = TREE_MAIN
 
-    def pulse_wave(position, pulse_width, phase_offset, frequency, amplitude, offset):
+    def pulse_wave(self, position, pulse_width, phase_offset, frequency, amplitude, offset):
         position = position + phase_offset
         phase = (position * frequency) - int(position * frequency)
         return offset + amplitude * (1 if phase < pulse_width else -1),
